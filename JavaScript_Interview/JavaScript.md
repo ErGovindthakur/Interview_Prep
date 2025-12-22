@@ -430,3 +430,17 @@ INTERVIEW QUICK NOTES ⭐
 console.log(5 == "5");    // true  (string converted to number)
 console.log(5 === "5");  // false (number ≠ string)
 ```
+
+## 9. Purpose of the isNaN function.
+* isNaN() checks whether a value is not a number, but it performs type coercion; Number.isNaN() is safer and preferred.
+
+> true → if the value is NOT a valid number
+
+> false → if the value can be treated as a number
+
+```js
+Number.isNaN("abc"); // false
+Number.isNaN(NaN);   // true
+Number.isNaN("123"); // false
+
+````
