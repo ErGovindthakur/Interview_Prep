@@ -444,3 +444,13 @@ Number.isNaN(NaN);   // true
 Number.isNaN("123"); // false
 
 ````
+## 10. What is null vs undefined?
+* undefined means a variable is declared but not assigned, while null is an intentional assignment representing no value.
+
+| Feature         | `undefined`           | `null`                     |
+| --------------- | --------------------- | -------------------------- |
+| Assigned by     | JavaScript            | Developer                  |
+| Meaning         | Not assigned          | No value                   |
+| typeof          | `undefined`           | `object` ❌                 |
+| Loose equality  | `==` with null → true | `==` with undefined → true |
+| Strict equality | ❌                     | ❌                          |
