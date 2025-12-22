@@ -143,3 +143,125 @@ user.name = "Thakur"; // ✅ allowed
 | **Initialization required**  | ❌ No                             | ❌ No              | ✅ Yes             |
 | **Adds to global object**    | ✅ Yes (window)                   | ❌ No              | ❌ No              |
 | **Preferred usage**          | ❌ Avoid                          | ✅ Yes             | ✅ Yes (default)   |
+
+
+## 6. Data types in JavaScript.
+```js
+/*
+========================================
+JavaScript Data Types (Single Code Base)
+========================================
+
+JavaScript has TWO categories of data types:
+1. Primitive Data Types
+2. Non-Primitive (Reference) Data Types
+*/
+
+/* ================================
+   1. PRIMITIVE DATA TYPES
+   ================================ */
+
+/*
+1️⃣ Number
+- Used for integers and floating-point numbers
+*/
+let age = 25;            // integer number
+let price = 99.99;      // decimal number
+
+/*
+2️⃣ String
+- Used for text
+- Can be written in single, double quotes or template literals
+*/
+let name = "Govind";
+let city = 'Delhi';
+let message = `Welcome ${name}`;
+
+/*
+3️⃣ Boolean
+- Represents true or false
+*/
+let isLoggedIn = true;
+let hasPermission = false;
+
+/*
+4️⃣ Undefined
+- Variable declared but not assigned a value
+*/
+let result;
+console.log(result); // undefined
+
+/*
+5️⃣ Null
+- Represents intentional absence of value
+*/
+let data = null;
+
+/*
+6️⃣ BigInt
+- Used to store very large numbers
+- End with 'n'
+*/
+let bigNumber = 123456789012345678901234567890n;
+
+/*
+7️⃣ Symbol
+- Used to create unique identifiers
+*/
+let id = Symbol("userId");
+
+/* ================================
+   2. NON-PRIMITIVE (REFERENCE) TYPES
+   ================================ */
+
+/*
+8️⃣ Object
+- Collection of key-value pairs
+*/
+let user = {
+  name: "Govind",
+  age: 22,
+  isDeveloper: true
+};
+
+/*
+9️⃣ Array
+- Ordered list of values
+*/
+let skills = ["HTML", "CSS", "JavaScript"];
+
+/*
+🔟 Function
+- Block of reusable code
+*/
+function greet() {
+  return "Hello JavaScript";
+}
+
+/* ================================
+   TYPE CHECKING USING typeof
+   ================================ */
+
+console.log(typeof age);        // number
+console.log(typeof name);       // string
+console.log(typeof isLoggedIn); // boolean
+console.log(typeof result);     // undefined
+console.log(typeof data);       // object (JavaScript bug)
+console.log(typeof bigNumber);  // bigint
+console.log(typeof id);         // symbol
+console.log(typeof user);       // object
+console.log(typeof skills);     // object
+console.log(typeof greet);      // function
+
+/*
+========================================
+IMPORTANT INTERVIEW NOTES
+========================================
+- JavaScript has 7 primitive data types
+- Objects, arrays, and functions are reference types
+- typeof null === "object" (known JS bug)
+- Functions are objects but typeof returns "function"
+========================================
+*/
+
+```
