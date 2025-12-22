@@ -263,5 +263,163 @@ IMPORTANT INTERVIEW NOTES
 - Functions are objects but typeof returns "function"
 ========================================
 */
+```
 
+## 7. What is an Array ?
+ * An array is a data structure that stores multiple values in a single variable and allows access using index positions starting from zero.
+
+ > Note => Array in Js is a special type of Object data type.
+
+ ```js
+ // 1. Creating an array
+ let fruits = ["Apple", "Banana", "Mango"];
+
+// 2. Accessing an array elem
+console.log(fruits[0]);
+
+// 3. Modifying an array elem
+fruits[1] = "Orange";
+console.log(fruits); // ["Apple", "Orange", "Mango"]
+
+// 4. Array length
+console.log(fruits.length); // 3
+
+// 5. Loop Through an array
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+ ```
+
+#### Some Common and most asked Js inbuilt array methods
+
+```js
+/*
+===========================================================
+Most Asked JavaScript Array Inbuilt Methods (Interview Ready)
+Single Code Base with Clear Explanations in Comments
+===========================================================
+*/
+
+let numbers = [1, 2, 3, 4, 5];
+let fruits = ["apple", "banana", "mango"];
+
+/* =========================================================
+1️⃣ push() → Add element at the END of array
+- Modifies original array
+- Returns new length
+========================================================= */
+fruits.push("orange");
+console.log(fruits); // ["apple","banana","mango","orange"]
+
+/* =========================================================
+2️⃣ pop() → Remove element from the END
+- Modifies original array
+- Returns removed element
+========================================================= */
+let removedFruit = fruits.pop();
+console.log(removedFruit); // orange
+console.log(fruits);       // ["apple","banana","mango"]
+
+/* =========================================================
+3️⃣ unshift() → Add element at the START
+- Modifies original array
+========================================================= */
+fruits.unshift("kiwi");
+console.log(fruits); // ["kiwi","apple","banana","mango"]
+
+/* =========================================================
+4️⃣ shift() → Remove element from the START
+- Modifies original array
+========================================================= */
+fruits.shift();
+console.log(fruits); // ["apple","banana","mango"]
+
+/* =========================================================
+5️⃣ map() → Transform each element
+- Returns NEW array
+- Does NOT modify original array
+========================================================= */
+let doubledNumbers = numbers.map((num) => {
+  return num * 2;
+});
+console.log(doubledNumbers); // [2,4,6,8,10]
+
+/* =========================================================
+6️⃣ filter() → Filter elements based on condition
+- Returns NEW array
+========================================================= */
+let evenNumbers = numbers.filter((num) => {
+  return num % 2 === 0;
+});
+console.log(evenNumbers); // [2,4]
+
+/* =========================================================
+7️⃣ reduce() → Reduce array to single value
+- Used for sum, max, count, etc.
+========================================================= */
+let sum = numbers.reduce((acc, curr) => {
+  return acc + curr;
+}, 0);
+console.log(sum); // 15
+
+/* =========================================================
+8️⃣ find() → Returns FIRST matching element
+========================================================= */
+let found = numbers.find((num) => {
+  return num > 3;
+});
+console.log(found); // 4
+
+/* =========================================================
+9️⃣ includes() → Check if value exists
+- Returns true / false
+========================================================= */
+console.log(fruits.includes("banana")); // true
+console.log(fruits.includes("grapes")); // false
+
+/* =========================================================
+🔟 indexOf() → Returns index of element
+- Returns -1 if not found
+========================================================= */
+console.log(fruits.indexOf("mango")); // 2
+
+/* =========================================================
+1️⃣1️⃣ slice() → Extract part of array
+- Does NOT modify original array
+========================================================= */
+let sliced = fruits.slice(0, 2);
+console.log(sliced); // ["apple","banana"]
+
+/* =========================================================
+1️⃣2️⃣ splice() → Add / Remove elements
+- Modifies original array
+========================================================= */
+fruits.splice(1, 1, "grapes");
+console.log(fruits); // ["apple","grapes","mango"]
+
+/* =========================================================
+1️⃣3️⃣ sort() → Sort array
+- Converts elements to strings by default
+========================================================= */
+let nums = [10, 2, 30, 4];
+nums.sort((a, b) => a - b); // ascending
+console.log(nums); // [2,4,10,30]
+
+/* =========================================================
+1️⃣4️⃣ forEach() → Loop through array
+- Does NOT return anything
+========================================================= */
+fruits.forEach((fruit) => {
+  console.log(fruit);
+});
+
+/* =========================================================
+INTERVIEW QUICK NOTES ⭐
+===========================================================
+- map, filter, reduce → return NEW array/value
+- push, pop, shift, unshift, splice → modify original array
+- forEach → returns undefined
+- slice ≠ splice (very common interview trap)
+===========================================================
+*/
 ```
