@@ -423,3 +423,10 @@ INTERVIEW QUICK NOTES ⭐
 ===========================================================
 */
 ```
+## 8. Difference between == and ===.
+* <b> == </b>compares values with type coercion, while <d>===</b> compares both value and type without type conversion.
+
+```js 
+console.log(5 == "5");    // true  (string converted to number)
+console.log(5 === "5");  // false (number ≠ string)
+```
