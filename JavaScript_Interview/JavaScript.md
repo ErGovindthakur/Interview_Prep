@@ -454,3 +454,18 @@ Number.isNaN("123"); // false
 | typeof          | `undefined`           | `object` ❌                 |
 | Loose equality  | `==` with null → true | `==` with undefined → true |
 | Strict equality | ❌                     | ❌                          |
+## 11 .  Use of the typeof operator.
+* The typeof operator is used to determine the data type of a value and always returns the result as a string.
+
+```js
+typeof 10;             // "number"
+typeof "Govind";       // "string"
+typeof true;           // "boolean"
+typeof undefined;      // "undefined"
+typeof null;           // "object" ❌ (JavaScript bug)
+typeof {};             // "object"
+typeof [];             // "object"
+typeof function(){};   // "function"
+typeof NaN;            // "number"
+
+```
