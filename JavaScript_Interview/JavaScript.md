@@ -557,3 +557,71 @@ const data = await Promise.all(
 );
 
 ```
+
+## 2. 🔹 What is Event Propagation?
+
+* When an event (like click) happens on an element, it travels through the DOM.
+This traveling process is called event propagation.
+
+#### There are two phases:
+
+##### Event Capturing (top → bottom)
+
+* Event Bubbling (bottom → top)
+
+🔹 Event Bubbling (Most Common)
+📌 Meaning
+
+Event bubbling means:
+
+The event starts from the target element and then moves upward to its parent, grandparent, and so on.
+
+```js 
+// html code
+<div id="parent">
+  <button id="child">Click Me</button>
+</div>
+
+// handled by js code
+document.getElementById("parent").addEventListener("click", () => {
+  console.log("Parent clicked");
+});
+
+document.getElementById("child").addEventListener("click", () => {
+  console.log("Child clicked");
+});
+
+// output
+Child clicked
+Parent clicked
+
+// Default behavior is bubbling
+```
+
+####   🔹 Event Capturing (Trick Question ⚠️)
+📌 Meaning
+
+Event capturing means:
+
+The event starts from the outermost parent and travels down to the target element.
+
+```js
+document.getElementById("parent").addEventListener(
+  "click",
+  () => {
+    console.log("Parent clicked");
+  },
+  true // capture phase enabled
+);
+
+document.getElementById("child").addEventListener("click", () => {
+  console.log("Child clicked");
+});
+
+// output
+Parent clicked
+Child clicked
+```
+#### 🧠 Golden Rule (Remember This)
+
+By default, JavaScript uses event bubbling.
