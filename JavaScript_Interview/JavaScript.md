@@ -1,3 +1,4 @@
+# Level-1 (Beginners)
 ## 1. What is JavaScript and its common uses?
 
 - JavaScript is a high-level, interpreted programming language mainly used to make web pages interactive and dynamic.
@@ -467,5 +468,92 @@ typeof {};             // "object"
 typeof [];             // "object"
 typeof function(){};   // "function"
 typeof NaN;            // "number"
+
+```
+
+# Level-2 (Intermediate)
+
+## 1. Purpose of the map method in JavaScript.
+* map() is used to transform array elements and return a new array of the same length without mutating the original array.
+
+### 🧠 Golden Rule (Memorize This)
+
+> If you want to return transformed data → use map()
+
+> If you just want to loop → use forEach()
+
+```js
+const users = [
+  { name: "Govind", role: "dev" },
+  { name: "Amit", role: "tester" }
+];
+
+const names = users.map(user => user.name);
+
+console.log(names); // it will give array of names "['Govind', 'Amit']"
+
+// +++++ Most asked interview questions over map
+
+// 1. Trap 1: map() vs forEach()
+const result = nums.map(n => n * 2);
+const result2 = nums.forEach(n => n * 2);
+
+console.log(result);  // [2,4,6,8]
+console.log(result2); // undefined ❌
+// 👉 map() returns data, forEach() does not.
+
+// 2. Trap 2: Forgetting return in map()
+const output = nums.map(n => {
+  n * 2;
+});
+
+console.log(output); // [undefined, undefined, undefined, undefined]
+
+
+// 3. Trap 3: map() always returns same length
+const data = [1, 2, 3];
+
+const res = data.map(n => {
+  if (n > 1) return n;
+});
+
+console.log(res); // [undefined, 2, 3]
+/*
+👉 map() does NOT filter
+👉 Use filter() instead
+*/
+
+// 4. Trap 4: Mutating objects inside map()
+const users = [{ age: 20 }, { age: 30 }];
+
+const updated = users.map(u => {
+  u.age += 1;
+  return u;
+});
+// ⚠️ This mutates original objects!
+
+// safer
+const updated = users.map(u => ({
+  ...u,
+  age: u.age + 1
+}));
+
+// 5. Trap 5: Using map() just for looping ❌
+nums.map(n => console.log(n)); // bad practice
+
+// use (forEach)
+nums.forEach(n => console.log(n));
+
+// 6. Trap 6: Async with map()
+const result = urls.map(async url => {
+  return await fetch(url);
+});
+
+console.log(result); // array of promises ❌
+
+// correct way
+const data = await Promise.all(
+  urls.map(url => fetch(url))
+);
 
 ```
