@@ -1,4 +1,5 @@
 # Level-1 (Beginners)
+
 ## 1. What is JavaScript and its common uses?
 
 - JavaScript is a high-level, interpreted programming language mainly used to make web pages interactive and dynamic.
@@ -99,8 +100,10 @@ var sayHi = function () {
 ```
 
 ### 4. What is TDZ?
-* The Temporal Dead Zone is the period from the start of a block until a <b>let</b> or <b>const</b> variable is initialized, during which accessing it throws a ReferenceError.
-> Example
+
+- The Temporal Dead Zone is the period from the start of a block until a <b>let</b> or <b>const</b> variable is initialized, during which accessing it throws a ReferenceError.
+  > Example
+
 ```js
 // TDZ starts
 console.log(a); // Reference Error
@@ -112,7 +115,8 @@ console.log(a); // works perfectly due to end of TDZ
 ```
 
 ## 5. Difference between let, var, and const.
-* var is function-scoped and unsafe, let is block-scoped and mutable, and const is block-scoped and immutable in reference.
+
+- var is function-scoped and unsafe, let is block-scoped and mutable, and const is block-scoped and immutable in reference.
 
 ```js
 var a = 10;
@@ -138,15 +142,15 @@ user.name = "Thakur"; // ✅ allowed
 | ---------------------------- | -------------------------------- | ----------------- | ----------------- |
 | **Scope**                    | Function scope                   | Block scope `{}`  | Block scope `{}`  |
 | **Hoisting**                 | Yes (initialized as `undefined`) | Yes (TDZ applies) | Yes (TDZ applies) |
-| **Temporal Dead Zone (TDZ)** | ❌ No                             | ✅ Yes             | ✅ Yes             |
-| **Re-declaration**           | ✅ Allowed                        | ❌ Not allowed     | ❌ Not allowed     |
-| **Re-assignment**            | ✅ Allowed                        | ✅ Allowed         | ❌ Not allowed     |
-| **Initialization required**  | ❌ No                             | ❌ No              | ✅ Yes             |
-| **Adds to global object**    | ✅ Yes (window)                   | ❌ No              | ❌ No              |
-| **Preferred usage**          | ❌ Avoid                          | ✅ Yes             | ✅ Yes (default)   |
-
+| **Temporal Dead Zone (TDZ)** | ❌ No                            | ✅ Yes            | ✅ Yes            |
+| **Re-declaration**           | ✅ Allowed                       | ❌ Not allowed    | ❌ Not allowed    |
+| **Re-assignment**            | ✅ Allowed                       | ✅ Allowed        | ❌ Not allowed    |
+| **Initialization required**  | ❌ No                            | ❌ No             | ✅ Yes            |
+| **Adds to global object**    | ✅ Yes (window)                  | ❌ No             | ❌ No             |
+| **Preferred usage**          | ❌ Avoid                         | ✅ Yes            | ✅ Yes (default)  |
 
 ## 6. Data types in JavaScript.
+
 ```js
 /*
 ========================================
@@ -166,8 +170,8 @@ JavaScript has TWO categories of data types:
 1️⃣ Number
 - Used for integers and floating-point numbers
 */
-let age = 25;            // integer number
-let price = 99.99;      // decimal number
+let age = 25; // integer number
+let price = 99.99; // decimal number
 
 /*
 2️⃣ String
@@ -175,7 +179,7 @@ let price = 99.99;      // decimal number
 - Can be written in single, double quotes or template literals
 */
 let name = "Govind";
-let city = 'Delhi';
+let city = "Delhi";
 let message = `Welcome ${name}`;
 
 /*
@@ -222,7 +226,7 @@ let id = Symbol("userId");
 let user = {
   name: "Govind",
   age: 22,
-  isDeveloper: true
+  isDeveloper: true,
 };
 
 /*
@@ -243,16 +247,16 @@ function greet() {
    TYPE CHECKING USING typeof
    ================================ */
 
-console.log(typeof age);        // number
-console.log(typeof name);       // string
+console.log(typeof age); // number
+console.log(typeof name); // string
 console.log(typeof isLoggedIn); // boolean
-console.log(typeof result);     // undefined
-console.log(typeof data);       // object (JavaScript bug)
-console.log(typeof bigNumber);  // bigint
-console.log(typeof id);         // symbol
-console.log(typeof user);       // object
-console.log(typeof skills);     // object
-console.log(typeof greet);      // function
+console.log(typeof result); // undefined
+console.log(typeof data); // object (JavaScript bug)
+console.log(typeof bigNumber); // bigint
+console.log(typeof id); // symbol
+console.log(typeof user); // object
+console.log(typeof skills); // object
+console.log(typeof greet); // function
 
 /*
 ========================================
@@ -267,13 +271,14 @@ IMPORTANT INTERVIEW NOTES
 ```
 
 ## 7. What is an Array ?
- * An array is a data structure that stores multiple values in a single variable and allows access using index positions starting from zero.
 
- > Note => Array in Js is a special type of Object data type.
+- An array is a data structure that stores multiple values in a single variable and allows access using index positions starting from zero.
 
- ```js
- // 1. Creating an array
- let fruits = ["Apple", "Banana", "Mango"];
+> Note => Array in Js is a special type of Object data type.
+
+```js
+// 1. Creating an array
+let fruits = ["Apple", "Banana", "Mango"];
 
 // 2. Accessing an array elem
 console.log(fruits[0]);
@@ -289,7 +294,7 @@ console.log(fruits.length); // 3
 for (let i = 0; i < fruits.length; i++) {
   console.log(fruits[i]);
 }
- ```
+```
 
 #### Some Common and most asked Js inbuilt array methods
 
@@ -319,7 +324,7 @@ console.log(fruits); // ["apple","banana","mango","orange"]
 ========================================================= */
 let removedFruit = fruits.pop();
 console.log(removedFruit); // orange
-console.log(fruits);       // ["apple","banana","mango"]
+console.log(fruits); // ["apple","banana","mango"]
 
 /* =========================================================
 3️⃣ unshift() → Add element at the START
@@ -424,16 +429,19 @@ INTERVIEW QUICK NOTES ⭐
 ===========================================================
 */
 ```
-## 8. Difference between == and ===.
-* <b> == </b>compares values with type coercion, while <d>===</b> compares both value and type without type conversion.
 
-```js 
-console.log(5 == "5");    // true  (string converted to number)
-console.log(5 === "5");  // false (number ≠ string)
+## 8. Difference between == and ===.
+
+- <b> == </b>compares values with type coercion, while <d>===</b> compares both value and type without type conversion.
+
+```js
+console.log(5 == "5"); // true  (string converted to number)
+console.log(5 === "5"); // false (number ≠ string)
 ```
 
 ## 9. Purpose of the isNaN function.
-* isNaN() checks whether a value is not a number, but it performs type coercion; Number.isNaN() is safer and preferred.
+
+- isNaN() checks whether a value is not a number, but it performs type coercion; Number.isNaN() is safer and preferred.
 
 > true → if the value is NOT a valid number
 
@@ -441,40 +449,43 @@ console.log(5 === "5");  // false (number ≠ string)
 
 ```js
 Number.isNaN("abc"); // false
-Number.isNaN(NaN);   // true
+Number.isNaN(NaN); // true
 Number.isNaN("123"); // false
+```
 
-````
 ## 10. What is null vs undefined?
-* undefined means a variable is declared but not assigned, while null is an intentional assignment representing no value.
+
+- undefined means a variable is declared but not assigned, while null is an intentional assignment representing no value.
 
 | Feature         | `undefined`           | `null`                     |
 | --------------- | --------------------- | -------------------------- |
 | Assigned by     | JavaScript            | Developer                  |
 | Meaning         | Not assigned          | No value                   |
-| typeof          | `undefined`           | `object` ❌                 |
+| typeof          | `undefined`           | `object` ❌                |
 | Loose equality  | `==` with null → true | `==` with undefined → true |
-| Strict equality | ❌                     | ❌                          |
-## 11 .  Use of the typeof operator.
-* The typeof operator is used to determine the data type of a value and always returns the result as a string.
+| Strict equality | ❌                    | ❌                         |
+
+## 11 . Use of the typeof operator.
+
+- The typeof operator is used to determine the data type of a value and always returns the result as a string.
 
 ```js
-typeof 10;             // "number"
-typeof "Govind";       // "string"
-typeof true;           // "boolean"
-typeof undefined;      // "undefined"
-typeof null;           // "object" ❌ (JavaScript bug)
-typeof {};             // "object"
-typeof [];             // "object"
-typeof function(){};   // "function"
-typeof NaN;            // "number"
-
+typeof 10; // "number"
+typeof "Govind"; // "string"
+typeof true; // "boolean"
+typeof undefined; // "undefined"
+typeof null; // "object" ❌ (JavaScript bug)
+typeof {}; // "object"
+typeof []; // "object"
+typeof function () {}; // "function"
+typeof NaN; // "number"
 ```
 
 # Level-2 (Intermediate)
 
 ## 1. Purpose of the map method in JavaScript.
-* map() is used to transform array elements and return a new array of the same length without mutating the original array.
+
+- map() is used to transform array elements and return a new array of the same length without mutating the original array.
 
 ### 🧠 Golden Rule (Memorize This)
 
@@ -485,35 +496,34 @@ typeof NaN;            // "number"
 ```js
 const users = [
   { name: "Govind", role: "dev" },
-  { name: "Amit", role: "tester" }
+  { name: "Amit", role: "tester" },
 ];
 
-const names = users.map(user => user.name);
+const names = users.map((user) => user.name);
 
 console.log(names); // it will give array of names "['Govind', 'Amit']"
 
 // +++++ Most asked interview questions over map
 
 // 1. Trap 1: map() vs forEach()
-const result = nums.map(n => n * 2);
-const result2 = nums.forEach(n => n * 2);
+const result = nums.map((n) => n * 2);
+const result2 = nums.forEach((n) => n * 2);
 
-console.log(result);  // [2,4,6,8]
+console.log(result); // [2,4,6,8]
 console.log(result2); // undefined ❌
 // 👉 map() returns data, forEach() does not.
 
 // 2. Trap 2: Forgetting return in map()
-const output = nums.map(n => {
+const output = nums.map((n) => {
   n * 2;
 });
 
 console.log(output); // [undefined, undefined, undefined, undefined]
 
-
 // 3. Trap 3: map() always returns same length
 const data = [1, 2, 3];
 
-const res = data.map(n => {
+const res = data.map((n) => {
   if (n > 1) return n;
 });
 
@@ -526,48 +536,44 @@ console.log(res); // [undefined, 2, 3]
 // 4. Trap 4: Mutating objects inside map()
 const users = [{ age: 20 }, { age: 30 }];
 
-const updated = users.map(u => {
+const updated = users.map((u) => {
   u.age += 1;
   return u;
 });
 // ⚠️ This mutates original objects!
 
 // safer
-const updated = users.map(u => ({
+const updated = users.map((u) => ({
   ...u,
-  age: u.age + 1
+  age: u.age + 1,
 }));
 
 // 5. Trap 5: Using map() just for looping ❌
-nums.map(n => console.log(n)); // bad practice
+nums.map((n) => console.log(n)); // bad practice
 
 // use (forEach)
-nums.forEach(n => console.log(n));
+nums.forEach((n) => console.log(n));
 
 // 6. Trap 6: Async with map()
-const result = urls.map(async url => {
+const result = urls.map(async (url) => {
   return await fetch(url);
 });
 
 console.log(result); // array of promises ❌
 
 // correct way
-const data = await Promise.all(
-  urls.map(url => fetch(url))
-);
-
+const data = await Promise.all(urls.map((url) => fetch(url)));
 ```
 
 ## 2. 🔹 What is Event Propagation?
 
-* When an event (like click) happens on an element, it travels through the DOM.
-This traveling process is called event propagation.
+- When an event (like click) happens on an element, it travels through the DOM.
+  This traveling process is called event propagation.
 
 #### There are two phases:
 
-##### Event Capturing (top → bottom)
-
-* Event Bubbling (bottom → top)
+- Event Bubbling (bottom → top)
+- Event Capturing (top -> bottom)
 
 🔹 Event Bubbling (Most Common)
 📌 Meaning
@@ -576,7 +582,7 @@ Event bubbling means:
 
 The event starts from the target element and then moves upward to its parent, grandparent, and so on.
 
-```js 
+```js
 // html code
 <div id="parent">
   <button id="child">Click Me</button>
@@ -598,7 +604,8 @@ Parent clicked
 // Default behavior is bubbling
 ```
 
-####   🔹 Event Capturing (Trick Question ⚠️)
+#### 🔹 Event Capturing (Trick Question ⚠️)
+
 📌 Meaning
 
 Event capturing means:
@@ -622,6 +629,9 @@ document.getElementById("child").addEventListener("click", () => {
 Parent clicked
 Child clicked
 ```
+
 #### 🧠 Golden Rule (Remember This)
 
 By default, JavaScript uses event bubbling.
+
+
