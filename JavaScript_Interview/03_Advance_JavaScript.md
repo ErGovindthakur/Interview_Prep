@@ -94,3 +94,63 @@ setTimeout (macrotask)
 
 * 👉 fetch → Web API → microtask
 * 👉 setTimeout → Web API → macrotask
+
+## 2. Difference between promises and async/await. 
+
+> Note -> ⚠️ First, the most important truth (many candidates miss this):
+async/await is NOT a replacement for Promises — it is built ON TOP of Promises.
+
+* Promises represent asynchronous results, while async/await provides a cleaner syntax to consume promises in a synchronous-looking manner.
+
+### 🔹 Core Difference (One Look Summary)
+
+| Feature        | Promises             | async / await        |
+| -------------- | -------------------- | -------------------- |
+| What it is     | Asynchronous object  | Syntax over promises |
+| Introduced in  | ES6                  | ES8                  |
+| Syntax style   | Chaining (`.then()`) | Synchronous-like     |
+| Readability    | Medium               | High                 |
+| Error handling | `.catch()`           | `try...catch`        |
+| Debugging      | Harder               | Easier               |
+| Return value   | Promise              | Promise (always)     |
+| Blocking       | ❌ Non-blocking       | ❌ Non-blocking       |
+
+
+#### 🔹 Code Comparison (Same Logic)
+
+#### ❌ Using Promises
+```js
+fetchUser()
+  .then(user => {
+    return fetchOrders(user.id);
+  })
+  .then(orders => {
+    console.log(orders);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+```
+
+#### ✅ Using async/await
+
+```js
+async function getOrders() {
+  try {
+    const user = await fetchUser();
+    const orders = await fetchOrders(user.id);
+    console.log(orders);
+  } catch (error) {
+    console.log(error);
+  }
+}
+/*
+✔ Cleaner
+✔ Easier to read
+✔ Easier to debug
+*/
+```
+
+### 🧠 Golden Rule (MEMORIZE THIS)
+
+* Promises are the foundation, async/await is the syntax sugar.
