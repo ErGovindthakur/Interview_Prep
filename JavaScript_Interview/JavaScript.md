@@ -856,3 +856,57 @@ const double = multiply(2);
 double(5); // 10
 ```
 
+## 6. How do setTimeout and setInterval work?
+
+* setTimeout executes a function once after a delay, while setInterval executes a function repeatedly at fixed intervals, both managed by the event loop.
+* They are part of the Web APIs (browser environment), not core JavaScript.
+
+> 🧠 Golden Rule (Remember This)
+
+Timers don’t block JavaScript — they work asynchronously via the event loop.
+
+```js
+// 1. setTimeout(callback,delayMins)
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Runs after 2 seconds");
+}, 2000);
+
+console.log("End");
+// output => start > End > Runs after 2 seconds
+
+/*
+✔ Executes only once
+✔ Delay is in milliseconds
+*/
+
+// 2. setInterval(callback, delayInMs);
+let count = 1;
+
+setInterval(() => {
+  console.log("Count:", count);
+  count++;
+}, 1000);
+/*
+✔ Runs every 1 second
+✔ Continues until stopped
+*/
+
+
+// 🔹 How to Stop Them (VERY IMPORTANT 🔥)
+const timerId = setTimeout(() => {
+  console.log("Won't run");
+}, 3000);
+
+// clearTimeout(timerId);
+
+
+const intervalId = setInterval(() => {
+  console.log("Running...");
+}, 1000);
+
+// clearInterval(intervalId);
+
+
+```
