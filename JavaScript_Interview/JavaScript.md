@@ -975,3 +975,23 @@ login(user)
 > 🧠 Golden Rule (Remember This)
 
 * Promises move async code from callback hell to readable, chainable logic.
+
+## 8. Use of async and await in JavaScript.
+
+* async/await simplifies promise-based asynchronous code by allowing it to be written in a synchronous style with proper error handling.
+
+#### 🧠 Golden Rule (Remember This)
+
+async makes a function return a promise, and await waits for that promise to settle.
+
+```js
+async function getData() {
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data);
+  } catch (error) {
+    console.log("Error:", error);
+  }
+}
+```
