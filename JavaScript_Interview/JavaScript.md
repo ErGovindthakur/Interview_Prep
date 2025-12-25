@@ -697,3 +697,61 @@ document.querySelector("ul").addEventListener("click", (e) => {
 #### 🎯 Final Interview Summary ⭐
 
 * <b>Event delegation improves performance by handling events at a parent level, while "stopPropagation()" controls event flow and "preventDefault()" blocks default browser behavior.</b>
+
+## 3. What are higher-order functions? Provide an example.
+
+* A higher-order function is a function that takes another function as an argument or returns a function, enabling functional programming patterns in JavaScript.
+
+```js
+//🔹 Example 1: Function as Argument (Most Common)
+
+let greet = (name) => {
+    return "Hello " + name;
+};
+
+let processUser = (callback,name) => {
+    return callback(name); // greet("Govind");
+};
+
+let greetUser = processUser(greet,"Govind");
+console.log(greetUser);
+// Output: Hello Govind
+
+/*
+Note
+✔ processUser is a higher-order function
+✔ greet is a callback function
+*/
+
+// 🔹 Example 2: Function Returning Another Function
+function multiplier(factor) {
+  return function (number) {
+    return number * factor;
+  };
+}
+
+const double = multiplier(2);
+console.log(double(5)); // 10
+
+// Note -: ✔ multiplier is a higher-order function
+
+
+// 🔹 Built-in Higher-Order Functions (VERY IMPORTANT 🔥)
+
+//These are most asked in interviews:
+const nums = [1, 2, 3, 4];
+
+nums.map(n => n * 2);      // map → HOF
+nums.filter(n => n > 2);  // filter → HOF
+nums.reduce((a, b) => a + b, 0); // reduce → HOF
+nums.forEach((num)=>{console.log(num+1)});
+```
+#### 🔹 Why Use Higher-Order Functions?
+
+* Code reusability
+
+* Cleaner and readable code
+
+* Functional programming
+
+* Less bugs, more control
