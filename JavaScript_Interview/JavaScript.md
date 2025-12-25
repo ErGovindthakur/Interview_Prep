@@ -826,3 +826,33 @@ counter.increment(); // 2
 🧠 Remember This
 
 > Note->  ( IIFE = Function + Immediate execution + Private scope )
+
+## 5.  Explain closures in JavaScript.
+* Closures allow functions to access variables from their lexical scope even after the outer function has executed, enabling data privacy and function factories.
+
+```js
+// 1. Data privacy
+function counter() {
+  let count = 0;
+
+  return function () {
+    count++;
+    return count;
+  };
+}
+
+const inc = counter();
+inc(); // 1
+inc(); // 2
+
+// 2. Function Factory
+function multiply(factor) {
+  return function (num) {
+    return num * factor;
+  };
+}
+
+const double = multiply(2);
+double(5); // 10
+```
+
