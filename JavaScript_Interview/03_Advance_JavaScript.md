@@ -154,3 +154,40 @@ async function getOrders() {
 ### 🧠 Golden Rule (MEMORIZE THIS)
 
 * Promises are the foundation, async/await is the syntax sugar.
+
+## 3. Purpose of the reduce method in arrays
+
+* reduce() is used to iterate over an array and accumulate its values into a single result such as a number, object, or array.
+
+#### 🧠 Golden Rule (MEMORIZE)
+
+* If the output is NOT an array of same length → think reduce()
+
+### 🔹 Basic Syntax (Understand This Clearly)
+```js
+array.reduce((accumulator, currentValue, index, array) => {
+  return updatedAccumulator;
+}, initialValue);
+
+/*
+Parameters:
+
+accumulator → result so far
+
+currentValue → current element
+
+initialValue → starting value (VERY IMPORTANT 🔥)
+*/
+```
+
+```js
+//🔹 Basic Example: Sum of Numbers
+
+const nums = [1, 2, 3, 4];
+
+const sum = nums.reduce((acc, curr) => {
+  return acc + curr;
+}, 0);
+
+console.log(sum); // 10
+```
