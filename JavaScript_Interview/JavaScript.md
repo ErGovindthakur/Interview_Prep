@@ -755,3 +755,74 @@ nums.forEach((num)=>{console.log(num+1)});
 * Functional programming
 
 * Less bugs, more control
+
+## 4. What is an IIFE (Immediately Invoked Function Expression)?
+⭐
+* An IIFE is a function expression that executes immediately and is used to create a private scope and avoid polluting the global namespace.
+
+🧠 Remember This
+
+IIFE = Function + Immediate execution + Private scope
+
+```js
+//🔹 Basic Syntax
+(function () {
+  console.log("IIFE executed");
+})();
+
+// 🔹 Arrow Function IIFE
+(() => {
+  console.log("Arrow IIFE");
+})();
+```
+
+#### 🔹 Why Do We Use IIFE?
+1️⃣ Avoid Global Scope Pollution
+
+* Variables inside IIFE are private.
+```js
+(function () {
+  let secret = "hidden";
+  console.log(secret);
+})();
+
+// console.log(secret); ❌ ReferenceError
+```
+
+#### 🔹 Common Interview Trap ⚠️
+
+❌ This will NOT work:
+
+```js
+function test() {
+  console.log("Hi");
+}();
+```
+
+* ✔ Because function declarations cannot be invoked immediately
+* ✔ Only function expressions can
+
+
+#### 🔹 How JavaScript Understands IIFE?
+
+* Wrapping in () converts function into an expression, not a declaration.
+
+> 🔹 Real-World Use Case
+```js
+const counter = (function () {
+  let count = 0;
+  return {
+    increment() {
+      count++;
+      return count;
+    }
+  };
+})();
+
+counter.increment(); // 1
+counter.increment(); // 2
+```
+✔ Uses closure + IIFE
+🧠 Remember This
+
+> Note->  ( IIFE = Function + Immediate execution + Private scope )
