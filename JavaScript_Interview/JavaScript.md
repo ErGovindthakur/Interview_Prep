@@ -634,4 +634,66 @@ Child clicked
 
 By default, JavaScript uses event bubbling.
 
+### ✅ Event Delegation (VERY IMPORTANT 🔥)
+#### 🔹 What is Event Delegation?
 
+Event delegation is a technique where:
+
+* Instead of adding an event listener to multiple child elements, we add one event listener to their parent and handle events using event bubbling.
+
+#### 🔹 Why Do We Need Event Delegation?
+
+> Without delegation ❌:
+
+* Too many event listeners
+
+* Poor performance
+
+* Hard to manage dynamic elements
+
+> With delegation ✅:
+
+* Better performance
+
+* Cleaner code
+
+* Works for dynamically added elements
+
+```js
+// without Even Delegation
+<ul>
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Mango</li>
+</ul>
+
+document.querySelectorAll("li").forEach(item => {
+  item.addEventListener("click", () => {
+    console.log(item.innerText);
+  });
+});
+// ❌ If new <li> is added → event won’t work
+
+// With Event delegation
+document.querySelector("ul").addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") {
+    console.log(e.target.innerText);
+  }
+});
+```
+
+### ✅ stopPropagation() vs preventDefault()
+
+#### 🧠 Golden Rules (Memorize This)
+
+* Delegation = Parent + Bubbling
+
+* stopPropagation() → stops event flow
+
+* preventDefault() → stops browser behavior
+
+* You can use both together
+
+#### 🎯 Final Interview Summary ⭐
+
+* <b>Event delegation improves performance by handling events at a parent level, while "stopPropagation()" controls event flow and "preventDefault()" blocks default browser behavior.</b>
