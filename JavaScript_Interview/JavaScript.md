@@ -995,3 +995,54 @@ async function getData() {
   }
 }
 ```
+
+## 9.  Difference between call, apply, and bind.
+
+### What are call, apply, and bind?
+
+* They are function methods used to:
+
+* Manually set the value of "this" and optionally pass arguments.
+
+```js
+const user1 = {
+  name: "Govind"
+};
+
+function greet(city, country) {
+  console.log(`Hi, I'm ${this.name} from ${city}, ${country}`);
+}
+
+// 1. fn.call(thisArg, arg1, arg2);
+
+/*
+✔ Calls the function immediately
+✔ Arguments passed one by one
+*/
+greet.call(user1, "Delhi", "India");
+// Hi, I'm Govind from Delhi, India
+
+
+// 2. fn.apply(thisArg, [arg1, arg2]);
+/*
+✔ Same as call()
+✔ Arguments passed as an array
+*/
+greet.apply(user1, ["Mumbai", "India"]);
+// Hi, I'm Govind from Mumbai, India
+
+
+// 3. const newFn = fn.bind(thisArg, arg1, arg2);
+/*
+✔ Returns a new function
+✔ Can be called later
+*/
+const boundGreet = greet.bind(user1, "Bangalore", "India");
+boundGreet();
+// Hi, I'm Govind from Bangalore, India
+
+```
+> 🧠 Golden Rule (MEMORIZE)
+
+* call/apply = invoke now
+* bind = invoke later
