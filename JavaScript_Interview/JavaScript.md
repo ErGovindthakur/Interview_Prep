@@ -907,6 +907,71 @@ const intervalId = setInterval(() => {
 }, 1000);
 
 // clearInterval(intervalId);
+```
 
+## 7. Describe promises in JavaScript.
+
+###  What is a Promise?
+
+* A Promise is an object that represents the eventual completion or failure of an asynchronous operation.
+
+
+#### A promise can be in one of three states:
+
+* Pending → initial state (waiting)
+
+* Fulfilled → operation successful
+
+* Rejected → operation failed
+
+> Once fulfilled or rejected → state cannot change.
+
+```js
+// Basic Promise Example
+const myPromise = new Promise((resolve, reject) => {
+  let success = true;
+
+  if (success) {
+    resolve("Data received");
+  } else {
+    reject("Something went wrong");
+  }
+});
+
+// 🔹 Consuming a Promise (then, catch, finally)  
+
+myPromise
+  .then(result => {
+    console.log(result); // Data received
+  })
+  .catch(error => {
+    console.log(error);
+  })
+  .finally(() => {
+    console.log("Promise completed");
+  });
+```
+> 🔹 Why Promises Were Introduced?
+
+* To solve Callback Hell (nested callbacks).
+```js
+// callback Hell Example
+login(user, () => {
+  fetchData(() => {
+    processData(() => {
+      saveData();
+    });
+  });
+});
+
+// cleaner promise example
+login(user)
+  .then(fetchData)
+  .then(processData)
+  .then(saveData)
+  .catch(console.error);
 
 ```
+> 🧠 Golden Rule (Remember This)
+
+* Promises move async code from callback hell to readable, chainable logic.
