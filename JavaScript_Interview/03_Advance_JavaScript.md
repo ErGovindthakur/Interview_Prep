@@ -191,3 +191,102 @@ const sum = nums.reduce((acc, curr) => {
 
 console.log(sum); // 10
 ```
+## 4. Debouncing vs Throttling (ADVANCED • VERY IMPORTANT 🔥)
+* These two are used to control how frequently a function executes, especially for performance optimization.
+
+### 🔹 WHY do we need them?
+
+####  Some events fire too many times:
+
+* scroll
+
+* resize
+
+* keyup
+
+* mousemove
+
+> ❌ Without control → performance issues
+
+> ✅ With control → smooth apps
+
+### 🔹 What is Debouncing?
+* Debouncing ensures that a function is executed only after a specified delay once the event stops firing.
+
+👉 “Wait until the user is done”
+
+#### 🧠 Real-life analogy
+
+* 📱 Typing in search box
+→ API call should happen after user stops typing
+
+```js
+// Debouncing Example
+function debounce(fn, delay) {
+  let timer;
+
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
+}
+
+// Usage
+function search(query) {
+  console.log("Searching for:", query);
+}
+
+const debouncedSearch = debounce(search, 500);
+
+/*
+✔ Function runs once after delay
+✔ Previous calls are cancelled
+*/
+```
+
+### 🔹 What is Throttling?
+* Throttling ensures a function is executed at most once in a given time interval, no matter how many times the event fires.
+
+👉 “Run at regular intervals”
+
+#### 🧠 Real-life analogy
+
+* 🖱 Scrolling
+→ Update scroll position every 200ms, not continuously
+
+```js
+// Throttling Example
+function throttle(fn, limit) {
+  let flag = true;
+
+  return function (...args) {
+    if (flag) {
+      fn.apply(this, args);
+      flag = false;
+
+      setTimeout(() => {
+        flag = true;
+      }, limit);
+    }
+  };
+}
+
+// Usage
+function onScroll() {
+  console.log("Scrolling...");
+}
+
+const throttledScroll = throttle(onScroll, 1000);
+// ✔ Executes at fixed intervals
+```
+
+### 🔹 Key Difference Table (INTERVIEW MUST ⭐)
+| Feature        | Debouncing        | Throttling             |
+| -------------- | ----------------- | ---------------------- |
+| Execution      | After event stops | At regular intervals   |
+| Best for       | Search input      | Scroll / resize        |
+| Calls          | Last call only    | First call in interval |
+| Delay behavior | Reset timer       | Ignore extra calls     |
+
