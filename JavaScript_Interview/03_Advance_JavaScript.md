@@ -690,3 +690,15 @@ Object.defineProperty(obj, "x", {
 
 obj.x = 20; // ❌ TypeError
 ```
+
+## 11.  Observer pattern and its relation to JavaScript.
+
+### 🔹 What is the Observer Pattern?
+
+The Observer Pattern is a behavioral design pattern where:
+
+* One object (Subject) maintains a list of dependents (Observers) and automatically notifies them when its state changes.
+
+#### 🧠 Golden Rule (MEMORIZE)
+
+* If multiple parts of your app must react to one change → think Observer Pattern.
