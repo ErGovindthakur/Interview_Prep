@@ -408,3 +408,30 @@ done: true means generator is finished
 
 * Generators = Pause + Resume + Yield values on demand
 
+## 7. What are weak maps and weak sets in JavaScript? 
+* WeakMap and WeakSet store objects weakly, allowing garbage collection and helping prevent memory leaks.
+
+#### Note -> “Weak” means:
+* They do not prevent garbage collection
+
+* When an object has no other references, it is automatically removed
+
+#### 🔹 When to Use WeakMap / WeakSet?
+
+* When object lifecycle is controlled elsewhere
+
+* When you want automatic cleanup
+
+* When avoiding memory leaks is critical
+
+#### 🔹 When NOT to Use?
+
+* When you need iteration
+
+* When keys/values are primitives
+
+* When you need size/count
+
+#### 🧠 Golden Rule (MEMORIZE)
+
+* WeakMap / WeakSet are for memory-safe object tracking, not data storage.
