@@ -435,3 +435,114 @@ done: true means generator is finished
 #### 🧠 Golden Rule (MEMORIZE)
 
 * WeakMap / WeakSet are for memory-safe object tracking, not data storage.
+
+## 8. How does JavaScript handle memory management? 
+
+* JavaScript automatically manages memory by allocating it when variables are created and freeing it using garbage collection when objects are no longer reachable.
+
+### 🔹 Memory Management Happens in 3 SEQUENTIAL STEPS
+* 1️⃣ Memory Allocation
+* 2️⃣ Memory Usage
+* 3️⃣ Memory Deallocation (Garbage Collection)
+
+```js
+// 🟢 1️⃣ Memory Allocation (Creation Phase)
+
+let num = 10;            // memory allocated for number
+let user = { name: "Govind" }; // memory allocated for object
+/*
+Memory is allocated when:
+
+-> Variables are declared
+
+-> Objects/functions are created
+
+
+* Where memory is allocated?
+
+1.Stack → primitive values & function calls
+
+2. Heap → objects, arrays, functions
+*/
+
+// 🟢 2️⃣ Memory Usage (Execution Phase)
+
+console.log(user.name); // using allocated memory
+
+/*
+* Memory is used when:
+
+-> Values are read
+
+-> Functions are executed
+
+-> Objects are accessed
+
+* At this stage:
+
+1. Stack keeps track of function execution
+
+2. Heap stores referenced objects
+*/
+
+// 3. 🟢 3️⃣ Memory Deallocation (Garbage Collection)
+let obj = { data: 123 };
+obj = null; // object becomes unreachable → GC will clean it
+
+/*
+This is the MOST IMPORTANT PART 🔥
+
+* JavaScript automatically frees memory using Garbage Collection when:
+
+-> Objects are no longer reachable
+
+-> No references point to them
+*/
+```
+
+### 🔥 How Garbage Collection Works (Core Concept)
+
+* JavaScript uses the "Mark" and "Sweep" Algorithm
+
+
+#### 🧠 Mark & Sweep (Interview MUST ⭐)
+1.Mark
+
+* Start from root objects
+
+* Global object
+
+* Call stack
+
+* Mark all reachable objects
+
+2. Sweep
+
+* Remove all unmarked (unreachable) objects
+
+### 🔄 SEQUENTIAL FLOW (TEXT FLOW CHART)
+```SCSS
+┌─────────────────────┐
+│   Code Execution    │
+└─────────┬───────────┘
+          ↓
+┌─────────────────────┐
+│  Memory Allocation  │
+│ (Stack / Heap)      │
+└─────────┬───────────┘
+          ↓
+┌─────────────────────┐
+│   Memory Usage      │
+│ (Read / Execute)    │
+└─────────┬───────────┘
+          ↓
+┌─────────────────────┐
+│ Garbage Collection  │
+│ (Mark & Sweep)      │
+└─────────┬───────────┘
+          ↓
+┌─────────────────────┐
+│ Unreachable Memory  │
+│     Freed           │
+└─────────────────────┘
+```
