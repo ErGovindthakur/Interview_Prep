@@ -351,3 +351,60 @@ multiply(2)(3)(4); // 24
 
 * Currying = One argument at a time + Closures
 
+## 6. What is a generator function and its usage?  
+
+* A generator function is a special type of function that can pause its execution and resume later, returning multiple values one at a time instead of all at once.
+
+* 👉 Defined using function*
+* 👉 Uses the yield keyword
+* 👉 Returns a generator object (an iterator)
+
+```js
+// Example of generator function
+
+function* count() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const gen = count();
+
+console.log(gen.next()); // { value: 1, done: false }
+console.log(gen.next()); // { value: 2, done: false }
+console.log(gen.next()); // { value: 3, done: false }
+console.log(gen.next()); // { value: undefined, done: true }
+
+/*
+Note -> 
+🧠 Key Points
+
+yield pauses execution
+
+next() resumes execution
+
+done: true means generator is finished
+*/
+```
+#### 🔹 When to Use Generators?
+
+* Lazy data generation
+
+* Custom iterators
+
+* Controlled execution
+
+* Memory-efficient loops
+
+#### 🔹 When NOT to Use?
+
+* Simple logic
+
+* When async/await is clearer
+
+* If team is unfamiliar
+
+#### 🧠 Golden Rule (MEMORIZE)
+
+* Generators = Pause + Resume + Yield values on demand
+
