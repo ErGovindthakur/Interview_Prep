@@ -290,3 +290,64 @@ const throttledScroll = throttle(onScroll, 1000);
 | Calls          | Last call only    | First call in interval |
 | Delay behavior | Reset timer       | Ignore extra calls     |
 
+
+## 5. Explain currying in JavaScript. 
+* Currying is the process of converting a function with multiple parameters into nested functions that take one parameter at a time.
+
+```js
+// 1. Normal function
+function add(a, b, c) {
+  return a + b + c;
+}
+
+add(1, 2, 3); // 6
+
+//2. curried version
+function add(a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
+}
+
+add(1)(2)(3); // 6
+/*
+✔ Each function takes one argument
+✔ Uses closures to remember previous values
+*/
+
+// 3. arrow curried version
+const multiply = a => b => c => a * b * c;
+
+multiply(2)(3)(4); // 24
+```
+
+#### 🔹 Why Does Currying Work?
+
+> Because of closures:
+
+* Inner functions remember values of outer functions
+
+* Values are stored until the final function executes
+
+#### 🔹 When to Use Currying?
+
+* When you want reusable logic
+
+* When building configurable functions
+
+* When working with functional patterns
+
+#### 🔹 When NOT to Use It?
+
+* Simple functions
+
+* When readability suffers
+
+* When team is not familiar
+
+#### 🧠 Golden Rule (MEMORIZE)
+
+* Currying = One argument at a time + Closures
+
