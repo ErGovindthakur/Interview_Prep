@@ -546,3 +546,65 @@ This is the MOST IMPORTANT PART 🔥
 │     Freed           │
 └─────────────────────┘
 ```
+
+## 9. Difference between shallow and deep copying. 
+
+### 🔹 What is Copying?
+
+* Copying means creating a new variable from an existing one.
+* But in JavaScript, objects are reference types, so copying can behave differently.
+
+### 🔹 Shallow Copy
+* A shallow copy creates a new object, but nested objects still share the same reference.
+
+* 👉 Only the first level is copied
+* 👉 Nested data is not fully cloned
+
+```js
+// shallow copy
+const original = {
+  name: "Govind",
+  address: {
+    city: "Delhi"
+  }
+};
+
+const shallowCopy = { ...original };
+
+shallowCopy.name = "Amit";
+shallowCopy.address.city = "Mumbai";
+
+console.log(original.address.city); // Mumbai
+
+// ⚠️ Nested object reference is shared ❌
+
+// other way to do shallow copy
+const copy = Object.assign({}, original);
+```
+
+### 🔹 Deep Copy
+* A deep copy creates a completely independent copy, including all nested objects.
+
+* 👉 No shared references
+* 👉 Safe to modify at any depth
+
+```js
+// Deep copy
+const original = {
+  name: "Govind",
+  address: {
+    city: "Delhi"
+  }
+};
+
+const deepCopy = structuredClone(original);
+
+deepCopy.address.city = "Mumbai";
+
+console.log(original.address.city); // Delhi ✅
+
+/*
+✔ Handles Dates, Maps, Sets
+❌ Not supported in very old browsers
+*/
+```
