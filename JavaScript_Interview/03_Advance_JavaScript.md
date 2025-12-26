@@ -608,3 +608,85 @@ console.log(original.address.city); // Delhi ✅
 ❌ Not supported in very old browsers
 */
 ```
+
+## 10 . What is strict mode in JavaScript and how is it enabled? 
+* Strict mode is a restricted variant of JavaScript that prevents silent errors and enforces better coding practices.
+
+* 👉 It makes JavaScript safer, cleaner, and more predictable.
+
+### 🔹 Why Was Strict Mode Introduced?
+
+> JavaScript (non-strict):
+
+* Allows silent errors ❌
+
+* Creates global variables accidentally ❌
+
+* Has unsafe this behavior ❌
+
+* Strict mode fixes these issues ✅
+
+
+### 🔹 How to Enable Strict Mode?
+```js
+
+// 1️⃣ Entire Script (Most Common)
+"use strict";
+
+x = 10; // ❌ ReferenceError
+
+// 2️⃣ Inside a Function
+function test() {
+  "use strict";
+  y = 20; // ❌ ReferenceError
+}
+// ✔ Affects only that function
+
+// 3️⃣ ES Modules (IMPORTANT 🔥)
+// In modules, strict mode is ON by default
+export const x = 10;
+```
+
+### 🔹 What Does Strict Mode Do? (Key Rules)
+
+```js
+// 1 ❌ Prevents Accidental Globals
+"use strict";
+a = 5; // ❌ ReferenceError
+
+
+// 2. ❌ Disallows Duplicate Parameters
+"use strict";
+function sum(a, a) {} // ❌ SyntaxError
+
+
+// 3. ❌ Restricts this
+"use strict";
+function show() {
+  console.log(this);
+}
+show(); // undefined (not window)
+
+
+// 4. ❌ Disallows Deleting Variables
+"use strict";
+let x = 10;
+delete x; // ❌ SyntaxError
+
+
+// 5. ❌ Blocks Reserved Keywords
+"use strict";
+let public = 5; // ❌ Error
+// here "public" is a reserved keyword
+
+
+// 6. ❌ Prevents Silent Fails
+"use strict";
+const obj = {};
+Object.defineProperty(obj, "x", {
+  value: 10,
+  writable: false
+});
+
+obj.x = 20; // ❌ TypeError
+```
