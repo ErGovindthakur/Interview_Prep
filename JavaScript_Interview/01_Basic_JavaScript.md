@@ -67,7 +67,7 @@ console.log(a); // undefined
 var a = 10;
 
 // Let's understand how it's internally works
-let a; // declaration
+var a; // declaration
 console.log(a); // undefined
 a = 10;
 ```
