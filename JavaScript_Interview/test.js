@@ -88,3 +88,33 @@ myDetails.call(myData,"Siwan","Software Developer");
 myDetails.apply(myData,["Siwan","Software Developer"]);
 let bundResult = myDetails.bind(myData,"Siwan","Software Developer");
 bundResult();
+
+// exploring currying and generator function
+
+let add = (a,b,c) => { // normal function, having multiple args
+     return a+b+c;
+};
+console.log(add(1,2,3));
+
+let add2 = (a) => { // curried function , nesting multiple func having single args
+     return (b)=>{
+          return (c)=>{
+               return a+b+c;
+          }
+     }
+};
+console.log(add2(1)(2)(3));
+
+// generator function, helps us to get lazy data generation
+
+function *count(){
+     yield 1;
+     yield 2;
+     yield 3;
+};
+
+let gen = count();
+console.log(gen.next());
+console.log(gen.next());
+console.log(gen.next());
+console.log(gen.next());
