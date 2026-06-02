@@ -25,3 +25,112 @@ Eval Execution Context (rarely used)
 * Q5. Why are functions callable before their declaration?
 
 > Because function declarations are fully stored in memory during the creation phase (hoisting).
+
+# Browser Storage & Redux - Interview Notes
+
+## 1. Local Storage vs Session Storage
+
+### Local Storage
+
+* Stores data permanently until manually removed.
+* Data remains even after closing the browser.
+* Capacity: ~5-10 MB.
+
+```javascript
+localStorage.setItem("name", "Govind");
+```
+
+**Use Cases:**
+
+* Theme preference
+* Language settings
+* Remember user choices
+
+### Session Storage
+
+* Stores data only for the current browser tab/session.
+* Data is cleared when the tab is closed.
+
+```javascript
+sessionStorage.setItem("name", "Govind");
+```
+
+**Use Cases:**
+
+* Multi-step forms
+* Temporary session data
+
+### Interview One-Liner
+
+> Local Storage persists data even after the browser is closed, while Session Storage keeps data only until the current tab is open.
+
+---
+
+## 2. What are Cookies?
+
+Cookies are small pieces of data stored by the browser and automatically sent to the server with every request.
+
+```javascript
+document.cookie = "username=Govind";
+```
+
+**Use Cases:**
+
+* Authentication
+* Session management
+* User tracking
+
+### Cookie vs Session Storage
+
+| Feature         | Cookie         | Session Storage   |
+| --------------- | -------------- | ----------------- |
+| Sent to Server  | ✅ Yes          | ❌ No              |
+| Storage Size    | ~4KB           | ~5MB              |
+| Auto Expires    | Can expire     | Ends with tab     |
+| Mainly Used For | Auth, Sessions | Temporary UI Data |
+
+### Interview One-Liner
+
+> Cookies are automatically sent to the server with each request, while Session Storage stays only in the browser and is not sent to the server.
+
+---
+
+## 3. Why Redux When We Have Local Storage?
+
+### Local Storage
+
+* Stores data permanently in the browser.
+* Does not automatically update the UI.
+
+### Redux
+
+* Manages application state in memory.
+* Instantly updates all components when state changes.
+
+### Example
+
+#### Local Storage
+
+```javascript
+localStorage.setItem("cart", JSON.stringify(cart));
+```
+
+Stores data but UI won't automatically update everywhere.
+
+#### Redux
+
+```javascript
+dispatch(addToCart(product));
+```
+
+Every component using the cart gets updated instantly.
+
+### Interview Answer
+
+> Local Storage is used for persistent data storage, whereas Redux is used for state management. Redux helps share and update data across components in real time, while Local Storage is mainly used to persist data between page refreshes.
+
+---
+
+## 10-Second Interview Summary
+
+> Local Storage stores data permanently, Session Storage stores data for a single tab session, and Cookies store small data that is automatically sent to the server. Redux is different because it manages application state and updates the UI in real time, while Local Storage is only for persistence.
