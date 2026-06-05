@@ -16,12 +16,12 @@ console.log(users);
 
 // practicing how to implement a higher order function
 
-let greet = (name) => {
+let greet = (name) => { // greet is a callback function
      return `Hello ${name}`;
 };
 
 
-let processGreet = (callback,name) => {
+let processGreet = (callback,name) => { // processGreet() is a higher order function
      return callback(name);
 };
 

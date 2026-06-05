@@ -134,3 +134,43 @@ Every component using the cart gets updated instantly.
 ## 10-Second Interview Summary
 
 > Local Storage stores data permanently, Session Storage stores data for a single tab session, and Cookies store small data that is automatically sent to the server. Redux is different because it manages application state and updates the UI in real time, while Local Storage is only for persistence.
+
+
+## 4. Callback Functions in Javascript
+
+### What
+* A callback function is simply a function passed as an argument to another function, which is executed later.
+
+```js
+function greet(name, callback){ // greet() is a higher order function
+     return callback(name);
+};
+
+function sayHello(name){ // sayHello() is a callback function
+     return `Hello, ${name}`;
+};
+console.log(greet(sayHello, "Govind")); // arguments order matter
+```
+
+### Why are callbacks used?
+* Callbacks help JavaScript handle async operations without blocking the main thread.
+
+### What is Callback hell ?
+* Deeply nested callbacks that make code difficult to read and maintain.
+
+
+### Difference between synchronous and asynchronous callbacks?
+
+1. Synchronous Callback (Runs Immediately)
+```js
+arr.forEach(callback=>processedData)
+```
+
+2. Asynchronous Callback (Runs Later)
+```js
+setTimeout(callback,100)
+```
+
+## 15-Second Interview Answer
+
+* "A callback function is a function passed as an argument to another function and executed later. JavaScript uses callbacks heavily for asynchronous tasks like API calls, timers, and file operations. While callbacks are useful, excessive nesting leads to callback hell, which is why modern JavaScript uses Promises and async/await." 🚀
